@@ -1,24 +1,57 @@
-# README
+# 自炊フレンド
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+自炊をしたいけど続かない。そんな人のためのコミュニティサイトです。
+自分の自炊の記録をつけることで、過去の成功や失敗の記録をつけることができる。
+他ユーザーの自炊記録を見ることで、自分の自炊の参考にすることができる。
+「いいね」機能で手軽にコミュニケーションをとれる
+そんな自炊のモチベーションを上げることを目的としたサイトです。
 
-Things you may want to cover:
+### サイトテーマ
+自炊を続けたい人のためのレシピ日記投稿サイト
 
-* Ruby version
+### テーマを選んだ理由
+リモートワークやオンライン授業など、家で過ごす時間が多くなりました。
+自炊をすることにより、
+・添加物が少なく体の健康につながる
+・趣味の一つとして息抜きになる
+・自分好みの味付けの満足度の高い料理を食べることができる
+などといった、多くのメリットを得ることができます。
 
-* System dependencies
+しかし、そんなメリットの多い自炊でも、気持ちを長続きさせるのはとても難しいです。
+いくら自分の好きな味付けであっても、自分の健康につながっているとしても、自分だけのためでは料理の準備や片付けの手間には勝てません。
 
-* Configuration
+私は、自炊を続けるうえで一番大事なことは、モチベーションをいかに保つかではないかと考えました。
+誰かに見てくれている。アドバイスをくれる。評価してくれる。一緒に始めた仲間がいる。
+新しい仲間が自炊で困っている人を助けることができる。初心者ならではの発想をもらえる。
+そんな初めてでも経験者でもユーザーになることで、仲間とのつながりを得ることができる場があれば自炊を続ける助けになります。
+自炊は心身の健康につながると思います。自炊をする人が増えることでもっと豊かな世界につながると思います。
+私は、そんな人生を豊かにする趣味づくりの助けになりたいと考え、今回のサイトを作ることにしました。
 
-* Database creation
+### ターゲットユーザ
+自炊を始めようとしている自炊初心者
 
-* Database initialization
+### 主な利用シーン
+日々の自炊の記録をつけるとき。
+自炊のモチベーションを上げたいとき。
+料理に失敗したときのアドバイスをもらいたいとき。
 
-* How to run the test suite
+## 設計書
+ER図：https://drive.google.com/file/d/12kaLp4owYlDD9KYNuufs4gBQWyUEr3U2/view?usp=sharing
+画面遷移図：https://app.diagrams.net/?libs=general;basic;arrows#G1mXQYtNY6a6SBKcrRtp6xZVYzu_x0ku8y
+テーブル定義書：https://docs.google.com/spreadsheets/d/1zjXKx9kVC0aqpVBw7pwff5tQ4IMqEZOpyNZq2camFAs/edit?usp=sharing
+ワイヤーフレーム：https://docs.google.com/presentation/d/1-vsHw4oKO1dNqdQ7SGX29t-O_gs-Xv8eDAB05QDdPm0/edit?usp=sharing
 
-* Services (job queues, cache servers, search engines, etc.)
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1sBdLFbiBwhKd7GEo6E2rqRpNZcq-2j_unuSIZo54ZEM/edit?usp=sharing
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
