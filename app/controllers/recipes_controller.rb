@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.page(params[:page]).reverse_order
   end
   def show
   end
@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
     @recipe.save
-    redirect_to root_path, notice: "登録しました."
+    redirect_to recipes_path, notice: "登録しました."
   end
   def delete
   end

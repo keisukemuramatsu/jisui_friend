@@ -1,39 +1,47 @@
 <main>
   <div class="container">
     <div class="row">
-      <h4 class="col">新規会員登録</h4>
+      <h4 class="col-md-4 offset-md-3"><u><strong>新規会員登録</strong></u></h4>
     </div>
     <div class="row justify-content-center">
-      <table class="table table-sm table-borderless">
-        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <table class="table table-borderless table_border_radius">
           <tr class="form-group">
-            <th><%= f.label :name ,"名前", class:"col-sm-8 col-form-label" %></th>
+            <th><%= f.label :name ,"名前", class:"pt-2 col-form-label" %></th>
             <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-control", placeholder: "ニックネーム" %></td>
           </tr>
           <tr class="form-group">
-            <th><%= f.label :email ,"メールアドレス", class:"col-sm-8 col-form-label" %></th>
+            <th><%= f.label :email ,"メールアドレス", class:"pt-2 col-form-label" %></th>
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "メールアドレス" %></td>
           </tr>
           <tr class="form-group">
-            <th><%= f.label :password,"パスワード", class:"col-sm-8 col-form-label" %></th>
+            <th><%= f.label :password,"パスワード", class:"pt-2 col-form-label" %></th>
             <td><%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder: "パスワード(６文字以上)" %></td>
           </tr>
           <tr class="form-group">
-            <th><%= f.label :password_confirmation,"パスワード(確認用)", class:"col-sm-8 col-form-label" %></th>
+            <th><%= f.label :password_confirmation,"パスワード(確認用)", class:"pt-2 col-form-label" %></th>
             <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder: "パスワード(再入力)" %></td>
           </tr>
           <tr class="actions text-center">
-            <th colspan="3"><%= f.submit "新規登録", class: "btn btn-success w-25" %></th>
+            <th colspan="3"><%= f.submit "新規登録", class: "btn  btn-danger w-50" %></th>
           </tr>
         <% end %>
+          <tfoot>
+            <tr class="col-md-4 offset-md-3">
+              <th colspan="3"><u>会員の方はこちらから</u></th>
+            </tr>
+            <tr class="actions text-center">
+              <th colspan="3"><%= link_to "ログインページへ", new_user_session_path, class: "btn  btn-primary w-50" %></th>
+            </tr>
+          </tfoot>
       </table>
-    </div>
-    <div class="row">
-      <div class="col py-2">会員の方はこちらから</div>
-    </div>
-    <div class="row">
-      <div class="col py-2 pl-5"><%= link_to "ログインページへ", new_user_session_path %></div>
+      <div class="row">
+      <h4 class="col-md-4 offset-md-3"></h4>
+      </div>
+      <div class="row">
+        <div class="col py-2 pl-5"></div>
+      </div>
     </div>
   </div>
 </main>
