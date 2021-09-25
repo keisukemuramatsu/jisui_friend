@@ -1,0 +1,39 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <h4 class="col-md-4 offset-md-3"><u><strong>レシピ編集</strong></u></h4>
+    </div>
+    <div class="row justify-content-center">
+      <%= form_with model:@recipe, local:true do |f| %>
+        <table class="table table-borderless table_border_radius">
+          <tr class="form-group">
+              <th><%= f.label :title,"レシピタイトル", class:"pt-2 col-form-label" %></th>
+              <td><%= f.text_field :title, class:"form-control" %></td>
+          </tr>
+          <tr class="form-group">
+            <th><%= f.label :image ,"レシピ画像", class:"col-form-label" %></th>
+              <td><%= f.attachment_field :image, class:"align-bottom" %></td>
+          </tr>
+          <tr class="form-group">
+              <th><%= f.label :foodstuff, "食材(分量)", class:"col-form-label" %></th>
+              <td><%= f.text_area :foodstuff, class:"form-control", placeholder: "例:人参(1/2本)" %></td>
+          </tr>
+          <tr class="form-group">
+              <th><%= f.label :instructions,"手順", class:"col-form-label" %></th>
+              <td><%= f.text_area :instructions, class:"form-control", placeholder: "例:1.皮をむく" %></td>
+          </tr>
+          <tr class="form-group">
+              <th><%= f.label :impression,"作成メモ", class:"col-form-label" %></th>
+              <td><%= f.text_area :impression, class:"form-control", placeholder: "例:美味しくできました。" %></td>
+          </tr>
+          <tr class="form-group">
+            <th>レシピタグ</th>
+            <td>タグ入力フォーム</td>
+          </tr>
+            <tr class="actions text-center">
+              <th colspan="2"><%= f.submit "編集を保存する", class: "btn  btn-danger w-100" %></th>
+            </tr>
+        <% end %>
+        </table>
+    </div>
+</main>

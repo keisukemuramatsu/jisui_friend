@@ -1,0 +1,46 @@
+<main>
+  <div class="container m-auto p-4 ">
+    <div class="row">
+      <div class="col-md-4 p-4 border border-light rounded bg-primary">
+        <h4>作成者プロフィール</h4>
+        <div class="col-md-6 text-center">
+          <%= attachment_image_tag @recipe.user, :profile_image, size: "200x200", class:"p-2", fallback: "l_e_others_501.png" %>
+        </div>
+        <table class="table border border-light">
+          <tr>
+            <th>名前</td>
+            <td><%= @recipe.user.name %></td>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <th><%= @recipe.user.introduction %></th>
+          </tr>
+        </table>
+        <div class="row">
+          <% if @recipe.user == current_user %>
+            <%= link_to "このレシピを編集する", edit_recipe_path(@recipe), class: "btn btn-danger w-100"%>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-8 p-4 border border-light rounded bg-primary">
+        <h4><u><strong><%= @recipe.title %></strong></u></h4>
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <%= attachment_image_tag @recipe, :image, size: "200x200", class:"p-2", fallback: "l_e_others_501.png" %>
+        </div>
+        <div class="col-md-6">
+          <p>＜使用食材＞</p><br>
+          <p><%= @recipe.foodstuff %></p>
+        </div>
+        <div class="col-md-6">
+          <p>＜手順＞</p><br>
+          <p><%= @recipe.instructions %></p>
+        </div>
+        <div class="col-md-6">
+          <p>＜調理メモ＞</p><br>
+          <p><%= @recipe.impression %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

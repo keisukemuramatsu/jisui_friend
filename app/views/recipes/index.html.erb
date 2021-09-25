@@ -8,8 +8,8 @@
     <div class="row py-1 px-5"> 
       <% @recipes.each do |recipe| %>
         <div class="card m-2" style="width: 15rem;">
-          <%= link_to root_path do %>
-            <%= attachment_image_tag recipe, :image, :fill, 100, 100, class:"h-100 w-100", fallback: "l_e_others_501.png" %>
+          <%= link_to recipe_path(recipe) do %>
+            <%= attachment_image_tag recipe, :image, :fill, 100, 100, class:"h-100 w-100 p-2", fallback: "l_e_others_501.png" %>
           <% end %>
           <div class="card-body">
           <div class="h5 card-title"><%= recipe.title %></div>
