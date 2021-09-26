@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
   def show
+    @user = User.find(params[:id])
+    @allrecipes = @user.recipes.count
   end
   def index
+    @users = User.page(params[:page]).reverse_order
   end
   def edit
     @user = User.find(params[:id])
@@ -14,7 +17,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to root_path, notice: "編集しました。"
+    redirect_to user_path(@user), notice: "編集しました。"
   end
   private
   def user_params

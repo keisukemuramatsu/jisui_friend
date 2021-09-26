@@ -25,7 +25,7 @@
         </div>
       <% end %>
       <div class="col-md-8 my-3 rounded bg-primary">
-        <h2><u><strong>みんなのレシピ</strong></u></h2>
+        <h2><u><strong>みんなのレシピ</strong></u>(全<%= @allrecipes %>件)</h2>
         <div class="row justify-content-center">
           <% @recipes.each do |recipe| %>
             <div class="card m-2" style="width: 12rem;">

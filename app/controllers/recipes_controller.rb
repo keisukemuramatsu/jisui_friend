@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   end
   def index
     @recipes = Recipe.page(params[:page]).reverse_order
+    @allrecipes = Recipe.count
   end
   def show
     @recipe = Recipe.find(params[:id])
