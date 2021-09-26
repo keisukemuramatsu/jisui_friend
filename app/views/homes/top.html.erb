@@ -1,1 +1,41 @@
-<h1>自炊フレンドTOP</h1>
+<main>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 mt-md-4 mt-0 justify-content-center d-flex align-items-center">
+        <div class="jumbotron">
+          <p class="lead px-lg-5 px-0 rounded">
+            <u>自炊フレンド</u>とは<br>自炊をしたいけど続かない。そんな人のためのコミュニティサイトです。会員登録することで、レシピの投稿ができます！投稿の閲覧は誰でもできますので、一度覗いてみてください！
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-3">
+        <h2><u><strong>みんなのレシピ</strong></u></h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <% @recipes.each do |recipe| %>
+        <div class="col-8 col-md-3 py-2">
+          <div class="card">
+            <div class="card-body">
+              <%= link_to recipe_path(recipe.id) do %>
+                <%= attachment_image_tag recipe, :image, :fill, 100, 100, class:"h-100 w-100 p-2", fallback: "l_e_others_501.png" %>
+                <h5 class="card-title">
+                  <%= recipe.title %>
+                </h5>
+              <% end %>
+              <p class="card-text"><%= truncate(recipe.impression, length:10) %></p>
+              <%= link_to root_path do %>
+                <%= recipe.user.name %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <h5 class="text-right mr-5 py-3">
+      <%= link_to "もっと見る>>>", recipes_path %>
+    </h5>
+  </div>
+</main>

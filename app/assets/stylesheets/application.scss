@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ .jumbotron {
+  background-image: url("自炊フレンドtop.jpg");
+  background-size: cover;
+  background-position: center 60%;
+}
+.lead{
+ background-color: rgba(220,220,220,0.8);
+}
  @import "bootstrap";
 p {
   white-space: pre-wrap;
