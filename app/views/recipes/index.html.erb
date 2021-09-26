@@ -1,25 +1,48 @@
 <main>
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h2><u><strong>みんなのレシピ</strong></u></h2>
-      </div>
-    </div>
-    <div class="row py-1 px-5"> 
-      <% @recipes.each do |recipe| %>
-        <div class="card m-2" style="width: 15rem;">
-          <%= link_to recipe_path(recipe) do %>
-            <%= attachment_image_tag recipe, :image, :fill, 100, 100, class:"h-100 w-100 p-2", fallback: "l_e_others_501.png" %>
-          <% end %>
-          <div class="card-body">
-          <div class="h5 card-title"><%= recipe.title %></div>
-          <p class="card-text"><%= truncate(recipe.impression, length:20) %></p>
-          <%= link_to root_path do %>
-            <%= recipe.user.name %>
-          <% end %>
+    <div class="row justify-content-center">
+      <% if user_signed_in? %>
+        <div class="col-md-4">
+          <div class="p-md-2 mt-3 p-3 border border-light rounded bg-primary">
+            <h4>マイプロフィール</h4>
+            <div class="col-md-6">
+              <%= attachment_image_tag current_user, :profile_image, size: "150x150", fallback: "l_e_others_501.png" %>
+            </div>
+            <table class="table rounded border border-light">
+              <tr>
+                <td>名前</td>
+                <td><%= current_user.name %></td>
+              </tr>
+              <tr>
+                <td>自己紹介</td>
+                <th><%= current_user.introduction %></th>
+              </tr>
+            </table>
+            <div class="row justify-content-center">
+              <%= link_to "マイプロフィールを編集する", edit_user_path(current_user.id), class: "btn btn-danger w-75 mb-2"%>
+            </div>
           </div>
         </div>
-      <%end%>
+      <% end %>
+      <div class="col-md-8 my-3 rounded bg-primary">
+        <h2><u><strong>みんなのレシピ</strong></u></h2>
+        <div class="row justify-content-center">
+          <% @recipes.each do |recipe| %>
+            <div class="card m-2" style="width: 12rem;">
+              <%= link_to recipe_path(recipe) do %>
+                <%= attachment_image_tag recipe, :image, :fill, 100, 100, class:"h-100 w-100 p-2", fallback: "l_e_others_501.png" %>
+              <% end %>
+              <div class="card-body">
+                <div class="h5 card-title"><%= recipe.title %></div>
+                <p class="card-text"><%= truncate(recipe.impression, length:20) %></p>
+                <%= link_to root_path do %>
+                  <%= recipe.user.name %>
+                <% end %>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
     </div>
     <div class="row justify-content-center">
       <%= paginate @recipes %>

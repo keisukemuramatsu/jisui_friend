@@ -339,26 +339,160 @@ button.bg-primary:focus {
   background-color: $primary_t5;
   border-color: $primary_t5;
 }
+/*------------------------------------
+- COLOR warning
+------------------------------------*/
 
-.table-primary,
-.table-primary > th,
-.table-primary > td {
-  background-color: $primary_t4;
+$warning_t1: #f6b16b;
+$warning_t2: #f3973a;
+$warning_t3: #f3973a;
+$warning_t4: #f3973a;
+$warning_t5: #d9740d;
+$warning_t6: #f2902c;
+$warning_t7: #f39f49;
+$warning_t8: #a95a0a;
+$warning_t9: #f3973a;
+
+$warning_shadow: rgba(246, 177, 107, 0.5);
+$warning_text_color_dark_bright: #212529;
+
+
+.alert-warning {
+  color: $warning_t5;
+  background-color: $warning_t9;
+  border-color: $warning_t4;
 }
 
-.table-hover .table-primary:hover {
-  background-color: $primary_t3;
+.alert-warning hr {
+  border-top-color: $warning_t3;
 }
 
-.table-hover .table-primary:hover > td,
-.table-hover .table-primary:hover > th {
-  background-color: $primary_t3;
+.alert-warning .alert-link {
+  color: $warning_t8;
 }
 
-.text-primary {
-  color: $primary_t1 !important;
+.badge-warning {
+  color: $warning_text_color_dark_bright;
+  background-color: $warning_t1;
 }
 
-a.text-primary:hover, a.text-primary:focus {
-  color: $primary_t2 !important;
+.badge-warning[href]:hover, .badge-warning[href]:focus {
+  color: $warning_text_color_dark_bright;
+  background-color: $warning_t2;
+}
+
+.bg-warning {
+  background-color: $warning_t1 !important;
+}
+
+a.bg-warning:hover, a.bg-warning:focus,
+button.bg-warning:hover,
+button.bg-warning:focus {
+  background-color: $warning_t2 !important;
+}
+
+.border-warning {
+  border-color: $warning_t1 !important;
+}
+
+.btn-warning {
+  color: $warning_text_color_dark_bright;
+  background-color: $warning_t1;
+  border-color: $warning_t1;
+}
+
+.btn-warning:hover {
+  color: $warning_text_color_dark_bright;
+  background-color: $warning_t7;
+  border-color: $warning_t2;
+}
+
+.btn-warning:focus, .btn-warning.focus {
+  box-shadow: 0 0 0 0.2rem $warning_shadow;
+}
+
+.btn-warning.disabled, .btn-warning:disabled {
+  color: $warning_text_color_dark_bright;
+  background-color: $warning_t1;
+  border-color: $warning_t1;
+}
+
+.btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active, .show > .btn-warning.dropdown-toggle {
+  color: $warning_text_color_dark_bright;
+  background-color: $warning_t2;
+  border-color: $warning_t6;
+}
+
+.btn-warning:not(:disabled):not(.disabled):active:focus, .btn-warning:not(:disabled):not(.disabled).active:focus, .show > .btn-warning.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $warning_shadow;
+}
+
+.btn-outline-warning {
+  color: $warning_t1;
+  background-color: transparent;
+  border-color: $warning_t1;
+}
+
+.btn-outline-warning:hover {
+  color: $warning_text_color_dark_bright;
+  background-color: $warning_t1;
+  border-color: $warning_t1;
+}
+
+.btn-outline-warning:focus, .btn-outline-warning.focus {
+  box-shadow: 0 0 0 0.2rem $warning_shadow;
+}
+
+.btn-outline-warning.disabled, .btn-outline-warning:disabled {
+  color: $warning_t1;
+  background-color: transparent;
+}
+
+.btn-outline-warning:not(:disabled):not(.disabled):active, .btn-outline-warning:not(:disabled):not(.disabled).active, .show > .btn-outline-warning.dropdown-toggle {
+  color: $warning_text_color_dark_bright;
+  background-color: $warning_t1;
+  border-color: $warning_t1;
+}
+
+.btn-outline-warning:not(:disabled):not(.disabled):active:focus, .btn-outline-warning:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-warning.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $warning_shadow;
+}
+
+.list-group-item-warning {
+  color: $warning_t5;
+  background-color: $warning_t4;
+}
+
+.list-group-item-warning.list-group-item-action:hover, .list-group-item-warning.list-group-item-action:focus {
+  color: $warning_t5;
+  background-color: $warning_t3;
+}
+
+.list-group-item-warning.list-group-item-action.active {
+  color: $warning_text_color_dark_bright;
+  background-color: $warning_t5;
+  border-color: $warning_t5;
+}
+
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: $warning_t4;
+}
+
+.table-hover .table-warning:hover {
+  background-color: $warning_t3;
+}
+
+.table-hover .table-warning:hover > td,
+.table-hover .table-warning:hover > th {
+  background-color: $warning_t3;
+}
+
+.text-warning {
+  color: $warning_t1 !important;
+}
+
+a.text-warning:hover, a.text-warning:focus {
+  color: $warning_t2 !important;
 }
