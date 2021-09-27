@@ -26,7 +26,7 @@
                 </h5>
               <% end %>
               <p class="card-text"><%= truncate(recipe.impression, length:10) %></p>
-              <%= link_to root_path do %>
+              <%= link_to user_path(recipe.user) do %>
                 <%= recipe.user.name %>
               <% end %>
             </div>
