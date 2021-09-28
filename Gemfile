@@ -67,3 +67,4 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'pry-byebug', group: :development
 gem 'kaminari','~> 1.2.1'
+gem 'ransack'

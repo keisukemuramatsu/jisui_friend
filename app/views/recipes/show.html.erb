@@ -25,7 +25,18 @@
       </div>
       </div>
       <div class="col-md-8 p-4 border border-light rounded bg-primary">
-        <h4><u><strong><%= @recipe.title %></strong></u></h4>
+        <h4>
+          <u><strong><%= @recipe.title %></strong></u>
+          <% if @recipe.favorited_by?(current_user) %>
+            <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
+              ♥<%= @recipe.favorites.count %> いいね
+            <% end %>
+          <% else %>
+            <%= link_to recipe_favorites_path(@recipe), method: :post do %>
+              ♡<%= @recipe.favorites.count %> いいね
+            <% end %>
+          <% end %>
+        </h4>
       <div class="row justify-content-center">
         <div class="col-md-5 m-3 rounded bg-warning d-flex align-items-center justify-content-center">
           <%= attachment_image_tag @recipe, :image, size: "200x200", class:"p-2", fallback: "l_e_others_501.png" %>
@@ -46,9 +57,31 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-md-8 p-4 border border-light rounded bg-primary">
-        <h4>コメント</h4>
+    <div class="offset-md-4 col-md-8 border border-light rounded bg-primary">
+      <h5 class="m-3"><u>コメント</u>(<%= @recipe.recipe_comments.count %>)</h5>
+        <div class="col-12">
+          <% @recipe.recipe_comments.each do |recipe_comment| %>
+            <div class="border border-dark rounded bg-warning m-3">
+              <p class="py-2 border-bottom border-secondary" align="center"><%= recipe_comment.comment %></p>
+              <p align="right"><%= link_to user_path(recipe_comment.user) do %><%= recipe_comment.user.name %><% end %> <%= recipe_comment.created_at.strftime('%Y.%m.%d') %>
+                <% if recipe_comment.user == current_user %>
+                  <%= link_to "削除",recipe_recipe_comment_path(recipe_comment.recipe, recipe_comment), method: :delete %></p>
+                <% end %>
+            </div>
+          <% end %>
+          <div class="border border-dark rounded bg-warning m-3">
+            <%= form_with(model:[@recipe, @recipe_comment], local: true) do |f| %>
+              <h4 class="my-3 mx-5"><u>新規コメント</u></h4>
+              <div class="form-group text-center">
+                <div class="col-md-6 offset-md-3">
+                  <%= f.text_area :comment, rows:'5',class:"form-control w-100", placeholder: "コメントをここに" %>
+                  <%= f.submit "送信する", class: "btn btn-danger w-50 my-2" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
+    </div>
   </div>
 </main>

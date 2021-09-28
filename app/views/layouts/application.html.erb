@@ -16,7 +16,12 @@
           <%= link_to root_path do %>
             <%= image_tag('logo.png') %>
           <% end %>
-          <div class="col-3 text-center"><span>検索🔍</span></div>
+          <div class="col-3 text-center"><dl class="searchbox">
+  <%= search_form_for @search, url: recipes_path do |f| %>
+    <dt><%= f.text_field :title_or_foodstuff_or_instructions_or_impression_cont ,placeholder: 'レシピタイトル検索' %></dt>
+    <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+  <% end %>
+</dl></div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
