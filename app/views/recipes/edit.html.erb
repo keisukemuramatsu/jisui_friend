@@ -27,8 +27,8 @@
               <td><%= f.text_area :impression, class:"form-control", placeholder: "例:美味しくできました。" %></td>
           </tr>
           <tr class="form-group">
-            <th>レシピタグ</th>
-            <td>タグ入力フォーム</td>
+            <th><%= f.label :tag_names,"レシピタグ", class:"col-form-label" %></th>
+            <td><%= f.text_field :tag_names, class:"form-control", placeholder:",で区切ってください" %></td>
           </tr>
             <tr class="actions text-center">
               <th colspan="2"><%= f.submit "編集を保存する", class: "btn  btn-danger w-100" %></th>
