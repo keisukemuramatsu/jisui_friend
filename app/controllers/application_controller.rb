@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     @search = Recipe.ransack(params[:q])
     @search_recipes = @search.result.page(params[:page]).reverse_order
   end
-  
+
   protected
 
   def configure_permitted_parameters
