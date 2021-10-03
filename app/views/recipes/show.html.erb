@@ -39,49 +39,88 @@
         </h4>
         <% @recipe_tags.each do |tag| %>
           <span class="m-1"><%= tag.tag_name %></span>
-          <% end %>
-      <div class="row justify-content-center">
-        <div class="col-md-5 m-3 rounded bg-warning d-flex align-items-center justify-content-center">
-          <%= attachment_image_tag @recipe, :image, size: "200x200", class:"p-2", fallback: "l_e_others_501.png" %>
-        </div>
-        <div class="col-md-5 rounded bg-warning m-3">
-          <p>＜使用食材＞</p><br>
-          <p><%= @recipe.foodstuff %></p>
-        </div>
-        <div class="col-md-5 rounded bg-warning m-3">
-          <p>＜手順＞</p><br>
-          <p><%= @recipe.instructions %></p>
-        </div>
-        <div class="col-md-5 rounded bg-warning m-3">
-          <p>＜調理メモ＞</p><br>
-          <p><%= @recipe.impression %></p>
+        <% end %>
+        <div class="row justify-content-center">
+          <div class="col-md-5 m-3 rounded bg-warning d-flex align-items-center justify-content-center">
+            <%= attachment_image_tag @recipe, :image, size: "200x200", class:"p-2", fallback: "l_e_others_501.png" %>
+          </div>
+          <div class="col-md-5 rounded bg-warning m-3">
+            <p>＜使用食材＞</p><br>
+            <p><%= @recipe.foodstuff %></p>
+          </div>
+          <div class="col-md-5 rounded bg-warning m-3">
+            <p>＜手順＞</p><br>
+            <p><%= @recipe.instructions %></p>
+          </div>
+          <div class="col-md-5 rounded bg-warning m-3">
+            <p>＜調理メモ＞</p><br>
+            <p><%= @recipe.impression %></p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="offset-md-4 col-md-8 border border-light rounded bg-primary">
-      <h5 class="m-3"><u>コメント</u>(<%= @recipe.recipe_comments.count %>)</h5>
-        <div class="col-12">
-          <% @recipe.recipe_comments.each do |recipe_comment| %>
-            <div class="border border-dark rounded bg-warning m-3">
-              <p class="py-2 border-bottom border-secondary" align="center"><%= recipe_comment.comment %></p>
-              <p align="right"><%= link_to user_path(recipe_comment.user) do %><%= recipe_comment.user.name %><% end %> <%= recipe_comment.created_at.strftime('%Y.%m.%d') %>
-                <% if recipe_comment.user == current_user %>
-                  <%= link_to "削除",recipe_recipe_comment_path(recipe_comment.recipe, recipe_comment), method: :delete %></p>
-                <% end %>
+    <div class="row justify-content-center">
+      <div class="offset-md-4 col-md-8 border border-light rounded bg-primary">
+        <h5 class="m-3"><u>コメント</u>(<%= @recipe.recipe_comments.count %>)</h5>
+          <div class="col-12">
+            <% @recipe.recipe_comments.each.reverse_each do |recipe_comment| %>
+              <div class="border border-dark rounded bg-warning m-3">
+                <div class="col-12" >
+                  <div class="py-2 border-bottom border-secondary" align="center">
+                    <%= recipe_comment.comment %>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-5 m-2">
+                    <div>
+                      <%= link_to user_path(recipe_comment.user) do %>
+                        <%= recipe_comment.user.name %>
+                      <% end %>
+                      <%= recipe_comment.created_at.strftime('%Y.%m.%d %H:%M') %>
+                      <% if recipe_comment.user == current_user %>
+                        <%= link_to "削除",recipe_recipe_comment_path(recipe_comment.recipe, recipe_comment), method: :delete %>
+                      <% end %>
+                    </div>
+                  </div>
+                <div class="col-5">
+                  <div  align="right" class="recipe-evaluation" data-score="<%= recipe_comment.rate %>"></div>
+                </div>
+              </div>
             </div>
           <% end %>
+          <script>
+            $('.recipe-evaluation').raty({
+              readOnly: true,
+              score: function() {
+                return $(this).attr('data-score');
+              },
+              path: '/assets/'
+            });
+          </script>
           <div class="border border-dark rounded bg-warning m-3">
             <%= form_with(model:[@recipe, @recipe_comment], local: true) do |f| %>
-              <h4 class="my-3 mx-5"><u>新規コメント</u></h4>
+              <h4 class="my-3 mx-5">
+                <u>新規コメント</u>
+              </h4>
               <div class="form-group text-center">
                 <div class="col-md-6 offset-md-3">
                   <%= f.text_area :comment, rows:'5',class:"form-control w-100", placeholder: "コメントをここに" %>
+                  <div id="evaluate_stars">
+                    <label>評価</label>
+                  </div>
                   <%= f.submit "送信する", class: "btn btn-danger w-50 my-2" %>
                 </div>
               </div>
             <% end %>
+            <script>
+            $('#evaluate_stars').raty({
+              starOn: "<%= asset_path('star-on.png') %>",
+              starOff: "<%= asset_path('star-off.png') %>",
+              starHalf: "<%= asset_path('star-half.png') %>",
+              scoreName: 'recipe_comment[rate]',
+              half: true
+              });
+            </script>
           </div>
         </div>
       </div>
