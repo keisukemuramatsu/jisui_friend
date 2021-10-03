@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :recipe_comments, only: [:create, :destroy]
   end
-  resources :users, only: [:index, :show, :edit, :update] 
+  resources :users, only: [:index, :show, :edit, :update], controllers: {
+    registrations: "users/registrations"
+  }
 end
