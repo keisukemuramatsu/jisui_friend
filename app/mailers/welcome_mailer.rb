@@ -5,8 +5,8 @@ class WelcomeMailer < ApplicationMailer
   #
   #   en.welcome_mailer.send_when_signup.subject
   #
-  def send_when_signup(email, name) 
-    @name = name
-    mail to: email, subject: 'ようこそ！自炊フレンドへ！'
+  def welcome_email
+   @user = params[:user]
+   mail(to: @user.email, subject: 'ようこそ！自炊フレンドへ！')
   end
 end
