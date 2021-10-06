@@ -70,3 +70,7 @@ gem 'pry-byebug', group: :development
 gem 'kaminari','~> 1.2.1'
 gem 'ransack'
 gem 'dotenv-rails'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
