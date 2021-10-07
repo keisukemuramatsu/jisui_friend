@@ -37,9 +37,9 @@
 料理に失敗したときのアドバイスをもらいたいとき。
 
 ## 設計書
-ER図：https://drive.google.com/file/d/12kaLp4owYlDD9KYNuufs4gBQWyUEr3U2/view?usp=sharing
-画面遷移図：https://app.diagrams.net/?libs=general;basic;arrows#G1mXQYtNY6a6SBKcrRtp6xZVYzu_x0ku8y
-テーブル定義書：https://docs.google.com/spreadsheets/d/1zjXKx9kVC0aqpVBw7pwff5tQ4IMqEZOpyNZq2camFAs/edit?usp=sharing
+ER図：https://drive.google.com/file/d/12kaLp4owYlDD9KYNuufs4gBQWyUEr3U2/view?usp=sharing  
+画面遷移図：https://app.diagrams.net/?libs=general;basic;arrows#G1mXQYtNY6a6SBKcrRtp6xZVYzu_x0ku8y  
+テーブル定義書：https://docs.google.com/spreadsheets/d/1zjXKx9kVC0aqpVBw7pwff5tQ4IMqEZOpyNZq2camFAs/edit?usp=sharing  
 ワイヤーフレーム：https://docs.google.com/presentation/d/1-vsHw4oKO1dNqdQ7SGX29t-O_gs-Xv8eDAB05QDdPm0/edit?usp=sharing
 
 ## チャレンジ要素一覧
@@ -51,7 +51,3 @@ https://docs.google.com/spreadsheets/d/1sBdLFbiBwhKd7GEo6E2rqRpNZcq-2j_unuSIZo54
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
